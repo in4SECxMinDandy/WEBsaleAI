@@ -1,51 +1,40 @@
+'use client';
+
+// ============================================================
+// Home Page — ML-Ecommerce Shop
+// ============================================================
+
+import { useAuthStore } from '@/store/authStore';
 import { HeroSection } from '@/components/shop/HeroSection';
-import { FeaturedCategories } from '@/components/shop/FeaturedCategories';
-import { RecommendedProducts } from '@/components/shop/RecommendedProducts';
-import { TrendingProducts } from '@/components/shop/TrendingProducts';
-import { FlashSaleBanner } from '@/components/shop/FlashSaleBanner';
-import { StatsSection } from '@/components/shop/StatsSection';
-import { NewsletterSection } from '@/components/shop/NewsletterSection';
+import {
+  ForYouSection,
+  TrendingSection,
+} from '@/components/shop/RecommendationSection';
 
 export default function HomePage() {
+  const { user } = useAuthStore();
+
   return (
     <div className="page-enter">
-      {/* Hero Section */}
+      {/* ── Hero ─────────────────────────────────────── */}
       <HeroSection />
 
-      {/* Stats */}
-      <StatsSection />
-
-      {/* Featured Categories */}
-      <section className="py-16 bg-background">
+      {/* ── AI Recommendations — For You ─────────────── */}
+      <section className="py-12 bg-muted/30">
         <div className="section-container">
-          <FeaturedCategories />
-        </div>
-      </section>
-
-      {/* Flash Sale Banner */}
-      <FlashSaleBanner />
-
-      {/* AI Recommendations — For You */}
-      <section className="py-16 bg-muted/30">
-        <div className="section-container">
-          <RecommendedProducts
-            title="🤖 Gợi ý dành cho bạn"
-            subtitle="Được cá nhân hóa bởi AI dựa trên hành vi của bạn"
-            strategy="hybrid"
-            limit={8}
+          <ForYouSection
+            userId={user?.id}
+            limit={12}
           />
         </div>
       </section>
 
-      {/* Trending Products */}
-      <section className="py-16 bg-background">
+      {/* ── Trending Products ─────────────────────────── */}
+      <section className="py-12 bg-background">
         <div className="section-container">
-          <TrendingProducts />
+          <TrendingSection limit={12} />
         </div>
       </section>
-
-      {/* Newsletter */}
-      <NewsletterSection />
     </div>
   );
 }

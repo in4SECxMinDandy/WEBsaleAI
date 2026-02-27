@@ -35,9 +35,10 @@ class Settings(BaseSettings):
     CB_MODEL_PATH: str = "/app/models/cb_model.pkl"
     NCF_MODEL_PATH: str = "/app/models/ncf_model.pt"
 
-    # Hybrid weights
-    CF_WEIGHT: float = 0.6
-    CB_WEIGHT: float = 0.4
+    # Hybrid weights (CF + CB + NCF must sum to 1.0 — engine normalizes automatically)
+    CF_WEIGHT: float = 0.5
+    CB_WEIGHT: float = 0.3
+    NCF_WEIGHT: float = 0.2
 
     # Recommendation defaults
     DEFAULT_LIMIT: int = 20
