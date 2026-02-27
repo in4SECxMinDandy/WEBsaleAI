@@ -1,0 +1,102 @@
+# ─────────────────────────────────────────
+# .gitignore — ML-Ecommerce
+# ─────────────────────────────────────────
+
+# Environment files (NEVER commit these!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+frontend/.env.local
+ml-service/.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# TypeScript build output
+dist/
+build/
+*.tsbuildinfo
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/.vercel
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ML Models (large binary files — use DVC or Git LFS)
+ml-service/models/*.pkl
+ml-service/models/*.pt
+ml-service/models/*.pth
+ml-service/models/*.bin
+!ml-service/models/.gitkeep
+
+# MLflow artifacts
+mlruns/
+mlartifacts/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Docker
+.docker/
+
+# Database
+*.sqlite
+*.db
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Coverage
+coverage/
+.nyc_output/
+htmlcov/
+
+# Prisma
+backend/prisma/migrations/
+
+# Uploads
+uploads/
+public/uploads/

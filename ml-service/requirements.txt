@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────
+# ML Service Requirements — Python 3.11
+# ─────────────────────────────────────────
+
+# FastAPI & Server
+fastapi==0.110.0
+uvicorn[standard]==0.28.0
+pydantic==2.6.3
+pydantic-settings==2.2.1
+python-multipart==0.0.9
+
+# Database
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.28
+motor==3.3.2          # Async MongoDB driver
+pymongo==4.6.2
+
+# Redis
+redis==5.0.3
+
+# ML Core
+numpy==1.26.4
+pandas==2.2.1
+scipy==1.12.0
+scikit-learn==1.4.1
+
+# Collaborative Filtering
+implicit==0.7.2
+
+# Deep Learning (NCF)
+torch==2.2.1
+torchvision==0.17.1
+
+# Model Tracking
+mlflow==2.11.1
+
+# Task Queue
+celery==5.3.6
+celery[redis]==5.3.6
+
+# Data Processing
+pyarrow==15.0.1
+
+# HTTP Client
+httpx==0.27.0
+aiohttp==3.9.3
+
+# Utilities
+python-dotenv==1.0.1
+loguru==0.7.2
+tenacity==8.2.3
+
+# Testing
+pytest==8.1.1
+pytest-asyncio==0.23.5
+httpx==0.27.0
