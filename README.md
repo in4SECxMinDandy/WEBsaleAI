@@ -569,13 +569,13 @@ chore:    Cập nhật build tools, dependencies
 
 ## 📄 License
 
-MIT License — © 2024 WEBsaleAI Team
+MIT License — © 2024 Hà Quang Minh
 
 ---
 
 <div align="center">
 
-Made with ❤️ by the WEBsaleAI Team
+Made with ❤️ by the Hà Quang Minh
 
 ⭐ **Star repo nếu bạn thấy hữu ích!** ⭐
 
