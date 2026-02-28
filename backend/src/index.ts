@@ -31,6 +31,8 @@ import eventRoutes from './routes/event.routes';
 import recommendationRoutes from './routes/recommendation.routes';
 import adminRoutes from './routes/admin.routes';
 import userRoutes from './routes/user.routes';
+import wishlistRoutes from './routes/wishlist.routes';
+import flashSaleRoutes from './routes/flash-sale.routes';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -80,6 +82,8 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/recommendations', recommendationRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/flash-sales', flashSaleRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────
 app.use((_req, res) => {

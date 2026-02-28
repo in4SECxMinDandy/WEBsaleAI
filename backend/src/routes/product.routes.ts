@@ -2,6 +2,8 @@ import { Router } from 'express';
 import { query } from 'express-validator';
 import { validate } from '../middleware/validate';
 import * as productController from '../controllers/product.controller';
+import { createReview, markHelpful } from '../controllers/review.controller';
+import { authenticate, optionalAuth } from '../middleware/auth';
 
 const router = Router();
 
@@ -19,9 +21,15 @@ router.get(
 );
 
 // GET /api/products/:slug
-router.get('/:slug', productController.getProductBySlug);
+router.get('/:slug', optionalAuth, productController.getProductBySlug);
 
 // GET /api/products/:id/reviews
 router.get('/:id/reviews', productController.getProductReviews);
+
+// POST /api/products/:id/reviews
+router.post('/:id/reviews', authenticate, createReview);
+
+// PUT /api/reviews/:id/helpful
+router.put('/reviews/:id/helpful', markHelpful);
 
 export default router;

@@ -7,11 +7,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ShoppingCart, Search, User, Menu, X, ChevronDown,
   Sparkles, Bell, Heart, LogOut, Settings, Package,
-  Sun, Moon, Zap,
+  Sun, Moon, Zap, Globe,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useCartStore } from '@/store/cartStore';
 import { useAuthStore } from '@/store/authStore';
+import { useTranslation } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -41,6 +42,7 @@ export function Header() {
   const { theme, setTheme } = useTheme();
   const { totalItems, openCart } = useCartStore();
   const { user, isAuthenticated, clearAuth } = useAuthStore();
+  const { locale, setLocale } = useTranslation();
 
   // Scroll detection
   useEffect(() => {
@@ -184,6 +186,19 @@ export function Header() {
                 aria-label="Tìm kiếm"
               >
                 <Search className="w-5 h-5" />
+              </motion.button>
+
+              {/* Language toggle */}
+              <motion.button
+                onClick={() => setLocale(locale === 'vi' ? 'en' : 'vi')}
+                className="btn-ghost p-2 rounded-lg hidden sm:flex items-center gap-1 text-xs font-medium"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Đổi ngôn ngữ"
+                title={locale === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt'}
+              >
+                <Globe className="w-4 h-4" />
+                <span className="uppercase">{locale}</span>
               </motion.button>
 
               {/* Theme toggle */}

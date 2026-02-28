@@ -143,6 +143,30 @@ export const eventsApi = {
   }) => api.post('/events/track', data),
 };
 
+// Wishlist
+export const wishlistApi = {
+  getAll: () => api.get('/wishlist'),
+  add: (productId: string) => api.post(`/wishlist/${productId}`),
+  remove: (productId: string) => api.delete(`/wishlist/${productId}`),
+  check: (productId: string) => api.get(`/wishlist/check/${productId}`),
+};
+
+// Reviews
+export const reviewsApi = {
+  getProductReviews: (productId: string, params?: Record<string, unknown>) =>
+    api.get(`/products/${productId}/reviews`, { params }),
+  createReview: (productId: string, data: { rating?: number; title?: string; content?: string; orderId?: string }) =>
+    api.post(`/products/${productId}/reviews`, data),
+  markHelpful: (reviewId: string) =>
+    api.put(`/products/reviews/${reviewId}/helpful`),
+};
+
+// Flash Sales
+export const flashSalesApi = {
+  getActive: () => api.get('/flash-sales/active'),
+  getAll: () => api.get('/flash-sales'),
+};
+
 // Admin
 export const adminApi = {
   getDashboardStats: () => api.get('/admin/dashboard/stats'),
