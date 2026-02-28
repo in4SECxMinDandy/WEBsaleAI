@@ -77,6 +77,10 @@ export const authApi = {
   getMe: () => api.get('/auth/me'),
   updateMe: (data: Partial<{ fullName: string; phone: string; avatarUrl: string }>) =>
     api.put('/auth/me', data),
+  forgotPassword: (email: string) =>
+    api.post('/auth/forgot-password', { email }),
+  resetPassword: (token: string, password: string) =>
+    api.post('/auth/reset-password', { token, password }),
 };
 
 // Products
